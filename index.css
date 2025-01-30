@@ -1,0 +1,311 @@
+:root {
+    --clr: #F5F5F5;
+    --clr2: #050505;
+    --p: #f5B301;
+    --p-dr: color-mix(in srgb, var(--p), #000 12%);
+    --s: #3B3F46;
+
+    font-size: 14px;
+    --font-header: roboto, 'arial';
+    --font-subtext: nunito, 'calibri';
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.font_header {
+    font-family: var(--font-header);
+}
+.font_subtext {
+    font-family: var(--font-subtext);
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    /* box-shadow: inset 0 0 5px grey;  */
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--p); 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--clr); 
+    transition: 250ms ease-out;
+    cursor: grab;
+  }
+  ::-webkit-scrollbar-thumb:active {
+    cursor: grabbing;
+  }
+
+
+body {
+    background: rgb(36,29,0);
+    background: linear-gradient(360deg, rgb(27, 21, 0) 0%, rgb(31, 20, 0) 1%, rgba(15,0,0,1) 12%, rgba(0,0,0,1) 100%);
+
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+
+    cursor: default;
+    color: var(--clr);
+    display: flex;
+    flex-direction: column;
+    letter-spacing: 1px;
+}
+
+#header {
+    background: transparent;
+    height: 10vh;
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+    padding: clamp(6px, 1vh, 15px) clamp(5px, 3vw, 50px);
+    font-family: var(--font-header);
+    font-size: clamp(13px, 2vw, 16px);
+}
+
+#header > div {
+    animation: fade-down 500ms 600ms backwards;
+}
+
+span.highlight {
+    color: var(--p)
+}
+
+.button {
+    background: var(--p-dr);
+    height: 30px;
+    font-size: clamp(13px, 2vw, 14px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: 150ms ease-out;
+}
+
+.btn2 {
+    background: transparent;
+    border: 1px solid var(--p-dr);
+    color: var(--p-dr);
+    transition: 250ms ease-out;
+}
+
+.button:hover {
+    background: var(--p-dr);
+    color: var(--clr);
+    cursor: pointer;
+    transform: translateY(-2px) scale(1.03);
+}
+
+.button::before {
+    content: '';
+    position: absolute;
+    height: 70px;
+    width: 15px;
+    background: #f3f3f3;
+    box-shadow: 0 0 15px #fff;
+    filter: blur(1px);
+    opacity: .9;
+    top: -40px;
+    transition: 600ms ease-out;
+    transition-delay: 350ms;
+    transform: rotate(-20deg) translateX(-120px);
+}
+
+.button:hover::before {
+    transform: rotate(-20deg) translate(120px, 50px);
+}
+
+@keyframes fade-down {
+    from {
+        opacity: 0;
+        transform: translateY(-30px) scale(.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.clr_fade {
+    color: color-mix(in srgb, var(--clr), transparent 40%);
+}
+
+.skills_con {
+    display: flex;
+    gap: clamp(1px, 1vw, 5px);
+    height: 1.5rem;
+    align-items: center;
+    justify-content: center;
+}
+.skills_con .skills {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    height: 100%;
+    min-width: clamp(150px, 20vw, 216px);
+    position: relative;
+}
+.skills_con .skills span {
+    height: 100%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    transform: translateY(-100%);
+    font-size: clamp(9px, 1vw, 13px);
+}
+
+.skills_con .skills .show_skill {
+    animation: show-skill 3.5s;
+    animation-fill-mode: backwards;
+    animation-iteration-count: infinite;
+}
+
+
+@keyframes show-skill {
+    0% {
+        transform: translateY(-100%);
+    }
+    10%, 90% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+#body {
+    background: transparent;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+
+
+#body .hero {
+    min-width: 360px;
+    width: 85%;
+    height: 50%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    animation: fade-up 500ms
+}
+
+@keyframes fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+#body .hero .dbi {
+    margin-top: 10vh;
+    font-size: clamp(10px, 1vw, 12px);
+    margin-bottom: 5vh;
+    font-family: var(--font-subtext);
+}
+
+#body .hero .font_header {
+    font-size: clamp(20px, 6vw, 40px);
+    margin-bottom: 1vh;
+}
+
+#body .hero .font_subtext {
+    font-size: clamp(11px, 2vw, 16px);
+    margin-bottom: .8vh;
+}
+
+
+#body .hero .contact {
+    min-width: 200px;
+    width: 15vw;
+    margin-top: 3vh;
+}
+
+
+
+#footer {
+    background: transparent;
+    height: 40vh;
+    width: 100%;
+    
+}
+
+#footer .projects {
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    gap: clamp(15px, 3vw, 30px);
+    padding: 0 clamp(15px, 3vw, 20px);
+    height: 100%;
+
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+}
+
+
+#footer .projects > div {
+    animation: fade-up 500ms calc(var(--i)* 350ms) backwards;
+    font-family: calibri;
+    background: transparent;
+    border-radius: .175rem;
+    padding: 3px 5px;
+    /* flex: 1 0 200px; */
+    aspect-ratio: 3 / 2;
+    width: 200px;
+    flex-shrink: 0;
+    height: clamp(140px, 25vh, 180px);
+    scroll-snap-align: start;
+
+    text-align: center;
+    overflow: hidden;
+    transition: 250ms ease-out;
+}
+
+
+#footer .projects > div:hover {
+    transform: translateY(-5px) scale(1.02);
+    color: var(--p);
+    cursor: pointer;
+}
+
+#footer .projects > div > div {
+    height: 70%;
+    width: 100%;
+}
+
+#footer .projects > div > div img {
+    margin-top: 1vh;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: .125rem;
+    overflow: hidden;
+}
