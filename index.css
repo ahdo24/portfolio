@@ -288,6 +288,13 @@ span.highlight {
     overflow: hidden;
     transition: 250ms ease-out;
 }
+#footer .projects > div:first-child{
+    margin-left: auto;
+}
+
+#footer .projects > div:last-child{
+    margin-right: auto;
+}
 
 
 #footer .projects > div:hover {

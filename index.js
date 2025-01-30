@@ -57,28 +57,8 @@ const projects = _ => {
             image: 'assetmanagement.jpg'
         },
         {
-            label: 'Masteer Maintenance',
-            image: 'mastermaintenance.png'
-        },
-        {
-            label: 'Purchasing System',
-            image: 'purchasing.png'
-        },
-        {
-            label: 'Asset Management',
-            image: 'assetmanagement.jpg'
-        },
-        {
-            label: 'Masteer Maintenance',
-            image: 'mastermaintenance.png'
-        },
-        {
-            label: 'Purchasing System',
-            image: 'purchasing.png'
-        },
-        {
-            label: 'Asset Management',
-            image: 'assetmanagement.jpg'
+            label: 'Waste Management System',
+            image: ''
         },
     ],
     con = document.querySelector('[data-con="projects"]')
@@ -88,10 +68,10 @@ const projects = _ => {
         let i = ctr+1;
 
         html += `
-            <div style="--i: ${i}">
+            <div style="--i: ${i}" >
                 <label>${label}</label>
                 <div>
-                    <img src="assets/${image}" alt="">
+                    <img src="assets/${image}" alter="${image}" draggable="false">
                 </div>
             </div>
         `
