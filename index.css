@@ -13,6 +13,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'robot', calibri;
 }
 
 .font_header {
@@ -22,27 +23,29 @@
     font-family: var(--font-subtext);
 }
 
+
 /* width */
 ::-webkit-scrollbar {
     width: 5px;
     height: 5px;
+    display: none;
   }
-  
+
   /* Track */
   ::-webkit-scrollbar-track {
     /* box-shadow: inset 0 0 5px grey;  */
     border-radius: 10px;
   }
-   
+
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: var(--p); 
+    background: var(--p);
     border-radius: 10px;
   }
-  
+
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: var(--clr); 
+    background: var(--clr);
     transition: 250ms ease-out;
     cursor: grab;
   }
@@ -127,7 +130,7 @@ span.highlight {
     top: -40px;
     transition: 600ms ease-out;
     transition-delay: 350ms;
-    transform: rotate(-20deg) translateX(-120px);
+    transform: rotate(-15deg) translateX(-130px);
 }
 
 .button:hover::before {
@@ -197,6 +200,7 @@ span.highlight {
     flex: 1;
     display: flex;
     justify-content: center;
+    position: relative;
     overflow: hidden;
 }
 
@@ -250,18 +254,53 @@ span.highlight {
 }
 
 
+#body .about_con {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background: color-mix(in srgb, var(--clr2), transparent);
+    backdrop-filter: blur(15px);
+    top: 0;
+    left: 0;
+    z-index: 9;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+}
+
+#body .about_con > div {
+    max-width: 1000px;
+    text-align: justify;
+    flex: 1 0 400px;
+    padding: 15vh 40px;
+    overflow-y: auto;
+    font-size: clamp(15px, 5vw, 35px);
+    text-shadow: var(--clr2) 0 5px 10px;
+    -webkit-text-stroke: 1px var(--clr);
+    -webkit-text-fill-color: transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 10vh;
+}
+
+#body .about_con > div > p {
+    text-indent: clamp(20px, 10vw, 100px);
+    font-family: Arial Black, Gadget, sans-serif; 
+
+
+}
 
 #footer {
     background: transparent;
     height: 40vh;
     width: 100%;
-    
+
 }
 
 #footer .projects {
     display: flex;
     align-items: center;
-    /* justify-content: center; */
     gap: clamp(15px, 3vw, 30px);
     padding: 0 clamp(15px, 3vw, 20px);
     height: 100%;
@@ -277,7 +316,6 @@ span.highlight {
     background: transparent;
     border-radius: .175rem;
     padding: 3px 5px;
-    /* flex: 1 0 200px; */
     aspect-ratio: 3 / 2;
     width: 200px;
     flex-shrink: 0;
@@ -316,3 +354,29 @@ span.highlight {
     border-radius: .125rem;
     overflow: hidden;
 }
+
+
+@supports (-webkit-text-stroke: 3px var(--clr)) {
+    .hollowed_text {
+        -webkit-text-fill-color: transparent;
+        font-family: Arial Black, Gadget, sans-serif;
+
+        background: linear-gradient(to left, transparent 50%, var(--p) 50%);
+        background-size: 200% 100%;
+        background-position: right bottom;
+        background-clip: text;
+        
+        position: relative;
+        transition: 300ms ease-out calc(var(--i) * 150ms);
+    }
+    
+}
+
+#body .about_con > div > p:hover .hollowed_text {
+    -webkit-text-stroke: 1px transparent;
+    background-position: left bottom;
+    text-shadow: none;
+    
+}
+
+

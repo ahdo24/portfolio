@@ -7,7 +7,7 @@ window.addEventListener("load", (event) => {
 const init = _ => {
     skills()
     projects()
-
+    aboutMe()
 
     setInterval(_=>{
         alternateSkills()
@@ -80,4 +80,34 @@ const projects = _ => {
 
     con.innerHTML = html
 
+}
+
+const aboutMe = _ => {
+    let con = document.querySelector('[data-con="intro"]'),
+        html = `
+
+        <p>
+            Hello, my name is <span class="hollowed_text" style="--i: 1">Jomar Ongcal</span> 
+            known as <span class="hollowed_text" style="--i: 2">'Ahdo'</span> short for Ahdonis. I am a dedicated and 
+            <span class="hollowed_text" style="--i: 3">versatile web developer</span> with 
+            <span class="hollowed_text" style="--i: 4">two years of experience</span> in the industry. 
+            My expertise spans across <span class="hollowed_text" style="--i: 5">full stack programming</span>, 
+            <span class="hollowed_text" style="--i: 6">front-end development</span>, 
+            and <span class="hollowed_text" style="--i: 7">application specialization</span>. 
+            Currently, I <span class="hollowed_text" style="--i: 8">lead a front-end team</span>,
+            where I focus on creating seamless and user-friendly web applications.
+        </p>
+        <p>
+            I am based in Calamba, Laguna, <span class="hollowed_text" style="--i: 1">Philippines</span>, 
+            and <span class="hollowed_text" style="--i: 2">I am passionate</span> about leveraging my skills to build innovative solutions 
+            that <span class="hollowed_text" style="--i: 3">enhance user experiences</span> and 
+            <span class="hollowed_text" style="--i: 4">drive business success</span>. I look forward to 
+            connecting and exploring opportunities to collaborate.
+        </p>
+                `
+    con.innerHTML = html
+
+    let p = document.querySelectorAll('[data-con="intro"] p')
+
+    console.log(p)
 }
