@@ -254,6 +254,13 @@ span.highlight {
 }
 
 
+.show {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateX(0) !important;
+    transition: 250ms ease-out;
+}
+
 #body .about_con {
     width: 100vw;
     height: 100vh;
@@ -266,10 +273,40 @@ span.highlight {
     overflow: hidden;
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
     padding: 5px;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(50px);
 }
 
-#body .about_con > div {
+.button_con {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(30px, 15vw, 100px);
+    font-family: calibri !important;
+    -webkit-text-fill-color: initial;
+    -webkit-text-stroke-width: initial;
+    -webkit-text-stroke-color: initial;
+}
+
+.button_con > div.button {
+    min-width: 200px;
+    width: 10vw;
+    border-radius: .175rem;
+    text-shadow: none;
+    font-family: arial;
+    letter-spacing: 1px;
+    padding: 3.5vh 0px;
+    font-weight: bold;
+    font-size: 1.325rem;
+}
+
+
+#body .about_con > div.intro {
     max-width: 1000px;
     text-align: justify;
     flex: 1 0 400px;

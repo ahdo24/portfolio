@@ -105,9 +105,18 @@ const aboutMe = _ => {
             connecting and exploring opportunities to collaborate.
         </p>
                 `
-    con.innerHTML = html
 
-    let p = document.querySelectorAll('[data-con="intro"] p')
+    // con.innerHTML = html
 
-    console.log(p)
+
+
+
 }
+
+const toggleShow = (selector) => {
+    const element = document.querySelector(selector);
+
+    if (element) 
+        element.classList.toggle('show');
+    
+};
