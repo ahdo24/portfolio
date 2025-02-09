@@ -104,9 +104,15 @@ const aboutMe = _ => {
             <span class="hollowed_text" style="--i: 4">drive business success</span>. I look forward to 
             connecting and exploring opportunities to collaborate.
         </p>
-                `
 
-    // con.innerHTML = html
+        <div class="button_con">
+            <div class="button btn2" onclick=toggleShow("[data-con='about_con']")>Close</div>
+            <div class="contact button">Contact</div>
+        </div>
+        
+        `
+
+    con.innerHTML = html
 
 
 
@@ -116,7 +122,20 @@ const aboutMe = _ => {
 const toggleShow = (selector) => {
     const element = document.querySelector(selector);
 
-    if (element) 
+    if (element) {
+
+        if (selector == `[data-con='about_con']`) {
+            element.classList.add('show_key_words');
+            setTimeout(_ => {
+                element.classList.remove('show_key_words');
+            }, 5000)
+        }
+
+
         element.classList.toggle('show');
+    }
+
+
+
     
 };

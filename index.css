@@ -283,33 +283,32 @@ span.highlight {
 }
 
 .button_con {
-    display: flex;
+    display: flex ;
     align-items: center;
     justify-content: center;
-    gap: clamp(30px, 15vw, 100px);
+    gap: clamp(20px, 10vw, 100px);
     font-family: calibri !important;
     -webkit-text-fill-color: initial;
     -webkit-text-stroke-width: initial;
     -webkit-text-stroke-color: initial;
+    max-width: 800px;
 }
 
 .button_con > div.button {
-    min-width: 200px;
+    min-width: 130px;
     width: 10vw;
     border-radius: .175rem;
     text-shadow: none;
     font-family: arial;
     letter-spacing: 1px;
-    padding: 3.5vh 0px;
     font-weight: bold;
-    font-size: 1.325rem;
+    font-size: clamp(15px, 3vw, 20px);
 }
 
-
 #body .about_con > div.intro {
-    max-width: 1000px;
+    max-width: 800px;
     text-align: justify;
-    flex: 1 0 400px;
+    flex: 1 0 360px;
     padding: 15vh 40px;
     overflow-y: auto;
     font-size: clamp(15px, 5vw, 35px);
@@ -324,8 +323,37 @@ span.highlight {
 #body .about_con > div > p {
     text-indent: clamp(20px, 10vw, 100px);
     font-family: Arial Black, Gadget, sans-serif; 
+}
 
 
+
+@supports (-webkit-text-stroke: 3px var(--clr)) {
+    .hollowed_text {
+        -webkit-text-fill-color: transparent;
+        font-family: Arial Black, Gadget, sans-serif;
+
+        background: linear-gradient(to left, transparent 50%, var(--p) 50%);
+        background-size: 200% 100%;
+        background-position: right bottom;
+        background-clip: text;
+        
+        position: relative;
+        transition: 300ms ease-out calc(var(--i) * 150ms);
+    }
+    
+}
+
+#body .about_con > div > p:hover .hollowed_text {
+    -webkit-text-stroke: 1px transparent;
+    background-position: left bottom;
+    text-shadow: none;
+    
+}
+#body .about_con.show_key_words > div > p .hollowed_text {
+    -webkit-text-stroke: 1px transparent;
+    background-position: left bottom;
+    text-shadow: none;
+    
 }
 
 #footer {
@@ -392,28 +420,5 @@ span.highlight {
     overflow: hidden;
 }
 
-
-@supports (-webkit-text-stroke: 3px var(--clr)) {
-    .hollowed_text {
-        -webkit-text-fill-color: transparent;
-        font-family: Arial Black, Gadget, sans-serif;
-
-        background: linear-gradient(to left, transparent 50%, var(--p) 50%);
-        background-size: 200% 100%;
-        background-position: right bottom;
-        background-clip: text;
-        
-        position: relative;
-        transition: 300ms ease-out calc(var(--i) * 150ms);
-    }
-    
-}
-
-#body .about_con > div > p:hover .hollowed_text {
-    -webkit-text-stroke: 1px transparent;
-    background-position: left bottom;
-    text-shadow: none;
-    
-}
 
 
